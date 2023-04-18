@@ -67,7 +67,7 @@ public class AnimalShelter {
             return Optional.empty();
         }
 
-        return Optional.of(searchResult.get(0)); //assuming animalNumber is always unique this will work
+        return Optional.of(searchResult.get(0)); //assuming animalNumber is unique
     }
 
     public Optional<Animal> findAnimal(String name) {
@@ -77,7 +77,7 @@ public class AnimalShelter {
             return Optional.empty();
         }
 
-        return Optional.of(searchResult.get(0)); //assuming animalNumber is always unique this will work
+        return Optional.of(searchResult.get(0)); //assuming animalNumber is unique
     }
 
     public void treatAnimal(int animalNumber) {

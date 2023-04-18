@@ -1,8 +1,8 @@
 package be.intecbrussel.opdracht1;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public abstract class Animal implements Vaccinateable, Treatable {
     //properties
@@ -24,10 +24,7 @@ public abstract class Animal implements Vaccinateable, Treatable {
         this.name = name;
         this.animalNumber = animalNumber;
 
-        //adding every disease to isVaccinated
-        for (Disease disease : Disease.values()) {
-            isVaccinated.putIfAbsent(disease, false);
-        }
+        Stream.of(Disease.values()).forEach(key -> isVaccinated.putIfAbsent(key, false)); //adding every disease to isVaccinated
     }
 
 
@@ -79,11 +76,10 @@ public abstract class Animal implements Vaccinateable, Treatable {
 
     @Override
     public String toString() {
-        return
-                ", isClean=" + isClean +
-                        ", age=" + age +
-                        ", name='" + name + '\'' +
-                        ", animalNumber=" + animalNumber +
-                        ", isVaccinated=" + isVaccinated;
+        return ", isClean=" + isClean +
+                ", age=" + age +
+                ", name='" + name + '\'' +
+                ", animalNumber=" + animalNumber +
+                ", isVaccinated=" + isVaccinated;
     }
 }

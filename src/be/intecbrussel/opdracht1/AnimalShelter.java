@@ -108,9 +108,14 @@ public class AnimalShelter {
         }
     }
 
-    public Animal findOldestAnimal() {
+    public Optional<Animal> findOldestAnimal() {
         sortAnimalsByAge();
-        return animals.get(animals.size() - 1);
+
+        if (animals.size() <= 0) {
+            return Optional.empty();
+        }
+
+        return Optional.of(animals.get(animals.size() - 1));
     }
 
     public int countAnimals() {

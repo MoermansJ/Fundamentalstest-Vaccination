@@ -44,17 +44,18 @@ public class MainApp {
 //        System.out.println(animalShelter.findAnimal("JONATHAN"));//returns Optional<Animal>
 //        System.out.println(animalShelter.findAnimal("NOTATHAN"));//returns empty Optional
 
-        animalShelter.treatAnimal(0);
+//        animalShelter.treatAnimal(0);
+//
+//        Optional<Animal> animalToBeVaccedOptional = animalShelter.findAnimal("JoNatHaN");
+//        if (animalToBeVaccedOptional.isPresent()) {
+//            for (Disease disease : Disease.values()) {
+//                animalToBeVaccedOptional.get().vaccinateAnimal(disease);
+//            }
+//        }
 
-        Optional<Animal> animalToBeVaccedOptional = animalShelter.findAnimal("JoNatHaN");
-        if (animalToBeVaccedOptional.isPresent()) {
-            for (Disease disease : Disease.values()) {
-                animalToBeVaccedOptional.get().vaccinateAnimal(disease);
-            }
-        }
+//        animalShelter.treatAllAnimals();
 
-        animalShelter.treatAllAnimals();
-
+//        System.out.println(animalShelter.findOldestAnimal());
         animalShelter.printAnimals();
     }
 }

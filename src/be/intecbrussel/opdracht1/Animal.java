@@ -69,6 +69,8 @@ public abstract class Animal implements Vaccinateable, Treatable {
         this.animalNumber = animalNumber;
     }
 
+
+    //custom methods
     @Override
     public void vaccinateAnimal(Disease disease) {
         isVaccinated.replace(disease, true);

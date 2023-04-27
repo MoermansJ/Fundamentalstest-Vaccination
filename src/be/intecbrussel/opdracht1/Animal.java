@@ -24,7 +24,7 @@ public abstract class Animal implements Vaccinateable, Treatable {
         this.name = name;
         this.animalNumber = animalNumber;
 
-        Stream.of(Disease.values()).forEach(key -> isVaccinated.putIfAbsent(key, false)); //adding every disease to isVaccinated
+        Stream.of(Disease.values()).forEach(key -> isVaccinated.put(key, false)); //adding every disease to isVaccinated
     }
 
 

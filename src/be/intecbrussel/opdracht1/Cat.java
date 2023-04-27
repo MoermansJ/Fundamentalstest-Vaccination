@@ -7,10 +7,10 @@ public class Cat extends Animal {
 
     //constructors
     public Cat() {
-        this(false, false, 0, "DEFAULT_CAT_NAME", 0);
+        this(false, 0, "DEFAULT_CAT_NAME", 0, false);
     }
 
-    public Cat(boolean hasLongNails, boolean isClean, int age, String name, int animalNumber) {
+    public Cat(boolean isClean, int age, String name, int animalNumber, boolean hasLongNails) {
         super(isClean, age, name, animalNumber);
         this.hasLongNails = hasLongNails;
     }

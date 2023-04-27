@@ -2,7 +2,7 @@ package be.intecbrussel.opdracht2;
 
 public class MainApp {
     public static void main(String[] args) {
-        CrazyRobot crazyRobot = new CrazyRobot("racecar");
+        CrazyRobot crazyRobot = new CrazyRobot("racecar123");
 
         LiftingRobot liftingRobot = new LiftingRobot(10, "Lift-o");
         liftingRobot.lift(11);

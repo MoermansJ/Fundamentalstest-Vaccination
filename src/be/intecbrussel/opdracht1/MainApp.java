@@ -6,10 +6,10 @@ public class MainApp {
     public static void main(String[] args) {
         //creating objects
         AnimalShelter animalShelter = new AnimalShelter();
-        Monkey jonathan = new Monkey(true, true, 28, "Jonathan", 28);
-        Monkey joey = new Monkey(true, false, 29, "Joey", 29);
-        Monkey quinten = new Monkey(false, true, 27, "Quinten", 27);
-        Monkey manuel = new Monkey(false, false, 26, "Manuel", 26);
+        Monkey jonathan = new Monkey(true, 28, "Jonathan", 28, true);
+        Monkey joey = new Monkey(false, 29, "Joey", 29, true);
+        Monkey quinten = new Monkey(true, 27, "Quinten", 27, false);
+        Monkey manuel = new Monkey(false, 26, "Manuel", 26, false);
         Cat cat1 = new Cat();
         Cat cat2 = new Cat();
         Cat cat3 = new Cat();
@@ -71,7 +71,7 @@ public class MainApp {
 
         //findOldestAnimal
 //        System.out.println(animalShelter.findOldestAnimal());
-        
+
         //printAnimals
         System.out.println("-".repeat(60));
         System.out.println("animalShelter.printAnimals() OUTPUT BELOW");

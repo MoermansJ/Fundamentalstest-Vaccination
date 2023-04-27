@@ -7,10 +7,10 @@ public class Monkey extends Animal {
 
     //constructors
     public Monkey() {
-        this(false, false, 0, "DEFAULT_MONKEY_NAME", 0);
+        this(false, 0, "DEFAULT_MONKEY_NAME", 0, false);
     }
 
-    public Monkey(boolean isHyperActive, boolean isClean, int age, String name, int animalNumber) {
+    public Monkey(boolean isClean, int age, String name, int animalNumber, boolean isHyperActive) {
         super(isClean, age, name, animalNumber);
         this.isHyperActive = isHyperActive;
     }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class AnimalShelter {
     //properties
@@ -61,61 +62,29 @@ public class AnimalShelter {
     }
 
     public Optional<Animal> findAnimal(int animalNumber) {
-        List<Animal> searchResult = animals.stream().filter(animal -> animal.getAnimalNumber() == animalNumber).toList();
-
-        if (searchResult.size() <= 0) {
-            return Optional.empty();
-        }
-
-        return Optional.of(searchResult.get(0));
+        return animals.stream().filter(animal -> animal.getAnimalNumber() == animalNumber).findFirst();
     }
 
     public Optional<Animal> findAnimal(String name) {
-        List<Animal> searchResult = animals.stream().filter(animal -> animal.getName().equals(name.toLowerCase())).toList();
-
-        if (searchResult.size() <= 0) {
-            return Optional.empty();
-        }
-
-        return Optional.of(searchResult.get(0));
+        return animals.stream().filter(animal -> animal.getName().equalsIgnoreCase(name)).findFirst();
     }
 
     public void treatAnimal(int animalNumber) {
-        List<Animal> searchResult = animals.stream().filter(animal -> animal.getAnimalNumber() == animalNumber).toList();
-
-        if (searchResult.size() <= 0) {
-            System.out.println("animalNumber not found!");
-            return;
-        }
-
-        searchResult.get(0).treatAnimal();
+        Optional<Animal> searchResult = findAnimal(animalNumber);
+        searchResult.ifPresent(Treatable::treatAnimal);
     }
 
     public void treatAnimal(String name) {
-        List<Animal> searchResult = animals.stream().filter(animal -> animal.getName().equals(name.toLowerCase())).toList();
-
-        if (searchResult.size() <= 0) {
-            System.out.println("name not found!");
-            return;
-        }
-
-        searchResult.get(0).treatAnimal();
+        Optional<Animal> searchResult = findAnimal(name);
+        searchResult.ifPresent(Treatable::treatAnimal);
     }
 
     public void treatAllAnimals() {
-        for (Animal animal : animals) {
-            animal.treatAnimal();
-        }
+        animals.forEach(Animal::treatAnimal);
     }
 
     public Optional<Animal> findOldestAnimal() {
-        sortAnimalsByAge();
-
-        if (animals.size() <= 0) {
-            return Optional.empty();
-        }
-
-        return Optional.of(animals.get(animals.size() - 1));
+        return animals.stream().max(Comparator.comparing(Animal::getAge));
     }
 
     public int countAnimals() {
@@ -123,9 +92,8 @@ public class AnimalShelter {
     }
 
     public void addAnimal(Animal animal) {
-        animal.setAnimalNumber(animalId);
-        animal.setName(animal.getName().toLowerCase());
+        animal.setAnimalNumber(animalId++);
+        animal.setName(animal.getName());
         animals.add(animal);
-        animalId++;
     }
 }

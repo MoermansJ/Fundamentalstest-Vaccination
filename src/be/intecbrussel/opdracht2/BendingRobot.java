@@ -11,11 +11,12 @@ public class BendingRobot extends Robot {
         this.maxBendAngle = maxBendAngle;
     }
 
-    
+
     //custom methods
     public void bend(double bendAngle) {
+        double simpleBendAngle = Math.abs(bendAngle) % 360;
         //assuming maxBendAngle is for both directions
-        if (Math.abs(bendAngle) > maxBendAngle) {
+        if (simpleBendAngle > maxBendAngle) {
             System.out.println("IMPOSSIBLE ANGLE (" + bendAngle + "°)");
             return;
         }
